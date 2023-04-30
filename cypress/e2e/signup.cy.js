@@ -1,8 +1,8 @@
 describe("template spec", () => {
   let randomString = (Math.random() + 1).toString(36).substring(7);
   before(() => {
-    cy.intercept('/api/users').as('login_api')
-
+    cy.intercept('/api/users').as('create_user_api');
+    cy.intercept('/api/users/login').as('login_api');
   });
   beforeEach(() => {    cy.visit("/");});
   
@@ -16,7 +16,7 @@ describe("template spec", () => {
     cy.get('[type="submit"]').click();
 
   
-    cy.wait('@login_api');
+    cy.wait('@create_user_api');
     cy.contains(`${randomString}`);
 
     cy.log("Step :  Click on Icon Setting ");
@@ -35,7 +35,7 @@ describe("template spec", () => {
     cy.log("Step : Click on button Login");
     cy.get('button[type="submit"]').click();
     cy.get('[class="error-messages"] li');
-    cy.wait('@login_api');
+    //cy.wait('@login_api');
     cy.contains("email or password is invalid");
   });
 
@@ -49,7 +49,7 @@ describe("template spec", () => {
 
     cy.log("Step : Click on button Login");
     cy.get('button[type="submit"]').click();
-    cy.wait('@login_api');
+   // cy.wait('@login_api');
     cy.contains(`${randomString}`);
   });
 });

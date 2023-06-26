@@ -5,12 +5,21 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "cy:open:dev": "cypress open --env configFile=development",
+    "cy:open:dev:chrome": "cypress open --browser chrome --env configFile=development",
+    "cy:run:dev": "cypress run --env configFile=development",
+    "cy:open:staging": "cypress open --env configFile=test",
+    "cy:run:staging": "cypress run --env configFile=test"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^12.11.0",
-    "cypress-mochawesome-reporter": "^3.4.0"
+    "cypress": "^12.15.0",
+    "cypress-mochawesome-reporter": "^3.4.0",
+    "cypress-xpath": "^2.0.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1"
   }
 }

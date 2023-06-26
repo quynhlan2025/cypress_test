@@ -23,3 +23,12 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('selectQuestionOption', (productName) => {
+    cy.get(".ant-select-item-option").each(($el, index, $list) => {
+   
+        if($el.text().includes(productName)) {
+            cy.wrap($el).click()
+        }
+    });
+});

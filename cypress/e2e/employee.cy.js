@@ -29,7 +29,7 @@ describe("Employee page", () => {
     employeePage.getExplainTxt().type("explain");
     employeePage.getSubmitBtn().click();
     cy.get(".ant-alert-message").contains(
-      "Your inquiry has been submitted successfully!"
+      "Your inquiry has been submitted successfully!!"
     );
 
     //cy.get("span.ant-select-selection-item:after").click()

@@ -15,15 +15,19 @@ function getConfigurationByFile(file) {
 
 module.exports = defineConfig({
   reporter: "cypress-mochawesome-reporter",
+  pluginsFolder: 'cypress/e2e/plugins',
   reporterOptions: {
+    reportDir: 'cypress/reports/results',
     charts: true,
     reportPageTitle: "custom-title",
     embeddedScreenshots: true,
     inlineAssets: true,
     saveAllAttempts: false,
   },
+  screenshotsFolder: 'cypress/reports/screenshots',
   e2e: {
-    supportFile: false,
+    supportFile: 'cypress/support/e2e.js',
+
     defaultCommandTimeout: 30000,
     baseUrl: "https://raksul.github.io/recruit-qa-engineer-work-sample",
 

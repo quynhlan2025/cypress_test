@@ -29,14 +29,14 @@ module.exports = defineConfig({
     supportFile: 'cypress/support/e2e.js',
 
     defaultCommandTimeout: 30000,
-    baseUrl: "https://raksul.github.io/recruit-qa-engineer-work-sample",
-
+    baseUrl: "https://raksul.github.io/recruit-qa-engineer-work-sample/",
     requestTimeout: 60000,
     responseTimeout: 80000,
-
     setupNodeEvents(on, config) {
       // implement node event listeners here
-      //
+      on('before:run', (details) => {
+ 
+      })
       const envFileName = `.env.${process.env.NODE_ENV || "development"}`;
 
       const file = config.env.configFile || "development"|| "dev";

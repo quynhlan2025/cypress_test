@@ -32,3 +32,18 @@ Cypress.Commands.add('selectQuestionOption', (productName) => {
         }
     });
 });
+Cypress.Commands.add('clickOnTab', (tabElements,tabName) => {
+  cy.get('.merchantTitle p').each(($el, index, $list) => {
+        if($el.text().toLowerCase().includes(tabName.toLowerCase())) {
+            cy.log($el.text());
+            cy.wrap($el).click()
+        }
+    });
+});
+
+Cypress.Commands.add('login', (productName) => {
+
+    cy.get('#email').type("team@harmonypayment.com");
+    cy.get('#password').type("123456");
+    cy.get('.mt-3 [type="submit"]').click();
+});

@@ -31,8 +31,6 @@ describe("Employee page", () => {
     cy.get(".ant-alert-message").contains(
       "Your inquiry has been submitted successfully!"
     );
-
-    //cy.get("span.ant-select-selection-item:after").click()
   });
 
   employee.forEach((employeeE) => {
